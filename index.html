@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mô phỏng bảng hỏi TGDĐ 16–22 (Qualtrics)</title>
+<style>
+:root{--bg:#f3f5f8;--sf:#fff;--tx:#1d2733;--mu:#6b7785;--bd:#d9dfe6;--ac:#0b6bcb;--acb:#e6f1fc;--ok:#1a8f4c;--wn:#b25e00;--wb:#fff3e0;--er:#c62828;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141a21;--sf:#1c242d;--tx:#e6ebf0;--mu:#93a0ae;--bd:#33404d;--ac:#5aa9f0;--acb:#1b3246;--ok:#4cc27f;--wn:#f0a64a;--wb:#3a2c17;--er:#ef6b6b}}
+:root[data-theme=dark]{--bg:#141a21;--sf:#1c242d;--tx:#e6ebf0;--mu:#93a0ae;--bd:#33404d;--ac:#5aa9f0;--acb:#1b3246;--ok:#4cc27f;--wn:#f0a64a;--wb:#3a2c17;--er:#ef6b6b}
+*{box-sizing:border-box}html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--sf);border-bottom:1px solid var(--bd);padding:10px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--sf);z-index:6}
+header h1{font-size:16px;margin:0;flex:1 1 220px}
+.tg{display:flex;border:1px solid var(--bd);border-radius:8px;overflow:hidden}
+.tg button,.sc button{font:inherit;font-size:13px;border:0;background:transparent;color:var(--tx);padding:6px 12px;cursor:pointer}
+.tg button.on{background:var(--ac);color:#fff}
+.sc{display:flex;flex-wrap:wrap;gap:6px;width:100%}.sc span{font-size:12px;color:var(--mu);align-self:center}
+.sc button{border:1px solid var(--bd);border-radius:14px;padding:3px 10px;font-size:12px}.sc button:hover{background:var(--acb)}
+.wrap{max-width:860px;margin:0 auto;padding:16px}.fl{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:16px 18px;margin-top:24px}.fl h3{margin:0 0 4px;font-size:15px}.lgd{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--mu);margin:8px 0 12px}.lgd i{display:inline-block;width:14px;height:12px;border-radius:3px;border:2px solid var(--bd);vertical-align:-2px;margin-right:5px}svg.fs{width:100%;min-width:560px;height:auto;display:block}.fs text{font:11.5px system-ui,sans-serif;fill:var(--tx);text-anchor:middle}.fs .nd{fill:var(--sf);stroke:var(--bd);stroke-dasharray:4 3;stroke-width:1.2}.fs .on .nd{fill:var(--acb);stroke:var(--ac);stroke-dasharray:none;stroke-width:2}.fs .dn .nd{fill:var(--acb);stroke:var(--ok);stroke-dasharray:none;stroke-width:2.6}.fs .off text{fill:var(--mu)}.fs .on .nd.rd{fill:var(--wb);stroke:var(--er)}.fs .on .nd.gd{stroke:var(--ok)}.fs .ed{fill:none;stroke:var(--bd);stroke-width:1.4}.fs .ed.on{stroke:var(--ac);stroke-width:2.6}.fs text.el{font-size:10.5px;fill:var(--mu)}.fs text.el.on{fill:var(--ac);font-weight:700}.fs [data-go]{cursor:pointer}
+aside{position:sticky;top:120px;align-self:start;max-height:calc(100vh - 140px);overflow:auto;background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:12px}
+aside h3{margin:0 0 6px;font-size:13px}
+.bar{height:6px;background:var(--bd);border-radius:3px;overflow:hidden;margin:4px 0 10px}.bar i{display:block;height:100%;background:var(--ok);width:0}
+.nv{display:flex;gap:6px;align-items:center;font-size:12.5px;padding:2px 4px;border-radius:5px;cursor:pointer;color:var(--tx)}
+.nv:hover{background:var(--acb)}.nv b{width:34px;flex:none}.nv span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.nv i{width:9px;height:9px;border-radius:50%;flex:none;background:var(--ac)}.nv.d i{background:var(--ok)}.nv.h{color:var(--mu)}.nv.h i{background:var(--bd)}.nv.h span{text-decoration:line-through}
+.sh{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--mu);margin:8px 0 2px}
+.intro,.q,.end{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+.intro h2{margin:0 0 6px;font-size:18px}.intro p{margin:6px 0;color:var(--mu);font-size:14px}
+.sec{font-size:13px;font-weight:700;color:var(--ac);margin:18px 2px 8px;text-transform:uppercase}
+.q.hid{border-style:dashed;opacity:.6}
+.qh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.qid{background:var(--ac);color:#fff;border-radius:5px;padding:0 7px;font-size:12px;font-weight:700}
+.qt{font-weight:600;flex:1 1 200px}.ty{font-size:11px;color:var(--mu);border:1px solid var(--bd);border-radius:10px;padding:0 8px}
+.hint{color:var(--mu);font-size:13px;margin:4px 0 8px}
+.lg{margin-top:10px;font-size:12px;color:var(--wn);background:var(--wb);border-radius:6px;padding:4px 8px}
+.opt{display:flex;gap:9px;align-items:flex-start;padding:7px 10px;border:1px solid var(--bd);border-radius:8px;margin:5px 0;cursor:pointer;user-select:none}
+.opt:hover{border-color:var(--ac)}.opt.on{background:var(--acb);border-color:var(--ac)}.opt.dis{opacity:.4;cursor:not-allowed}
+.opt u{width:16px;height:16px;border:2px solid var(--mu);flex:none;margin-top:2px;border-radius:50%}.opt.m u{border-radius:4px}
+.opt.on u{background:var(--ac);border-color:var(--ac);box-shadow:inset 0 0 0 2px var(--sf)}.opt.m.on u{box-shadow:none}
+.opt em{margin-left:auto;background:var(--ac);color:#fff;font-style:normal;font-size:12px;font-weight:700;border-radius:10px;padding:0 9px;flex:none}
+.ov{overflow-x:auto}table{border-collapse:collapse;min-width:100%}
+th,td{border-bottom:1px solid var(--bd);padding:6px 8px;text-align:center;font-size:13px}th{font-weight:600;color:var(--mu)}td:first-child,th:first-child{text-align:left}
+.cell{display:inline-block;width:18px;height:18px;border:2px solid var(--mu);border-radius:50%;cursor:pointer}.cell.on{background:var(--ac);border-color:var(--ac);box-shadow:inset 0 0 0 3px var(--sf)}
+.sm{display:grid;grid-template-columns:minmax(110px,1fr) auto minmax(110px,1fr) auto;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--bd);font-size:13px}
+.sm .l{text-align:right}.sm .pts{display:flex;gap:6px}.sm .cell{width:24px;height:24px}
+.na{font-size:12px;border:1px solid var(--bd);border-radius:12px;padding:2px 9px;cursor:pointer;white-space:nowrap}.na.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.sr{display:flex;gap:10px;align-items:center;margin:5px 0}.sr span{flex:1}.sr input{width:76px;font:inherit;padding:5px 8px;border:1px solid var(--bd);border-radius:6px;background:var(--bg);color:var(--tx)}
+.tot{font-weight:700;margin-top:6px}.tot.ok{color:var(--ok)}.tot.bad{color:var(--er)}
+textarea{width:100%;min-height:80px;font:inherit;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);resize:vertical}
+.end{border-color:var(--er);text-align:center;color:var(--er);font-weight:600}.mt{color:var(--mu);font-size:13px;font-style:italic}.lg.nt{color:var(--tx);background:var(--acb)}.oti{width:100%;font:inherit;margin:2px 0 6px;padding:7px 10px;border:1px solid var(--ac);border-radius:8px;background:var(--bg);color:var(--tx)}.fl ul{margin:6px 0 0;padding-left:20px;font-size:14px}.fl li{margin:3px 0}.fl td{vertical-align:top}
+@media(max-width:820px){.sm{grid-template-columns:1fr 1fr}.sm .l{text-align:left}}
+</style></head><body>
+<header><h1>Mô phỏng bảng hỏi Qualtrics · TGDĐ (16–22 tuổi, TP.HCM)</h1>
+<div class="tg" id="tg"><button data-m="all" class="on">Xem tất cả câu hỏi</button><button data-m="sim">Mô phỏng logic</button></div>
+<div class="sc"><span>Kịch bản preview:</span><button data-s="1">1 Không đồng ý</button><button data-s="2">2 Ngoài độ tuổi</button><button data-s="3">3 Không biết TGDĐ</button><button data-s="4">4 Chỉ nghe tên</button><button data-s="5">5 Biết cơ bản + đã mua</button><button data-s="0">Xóa hết</button></div></header>
+<div class="wrap"><main id="main"></main><section class="fl" id="ap1"></section><section class="fl" id="ap2"></section><section class="fl"><h3>PHỤ LỤC 3. SƠ ĐỒ LOGIC PHÂN NHÁNH</h3><div class="hint">Trang này tóm tắt luồng chính để đối chiếu khi cài đặt Survey Flow và Display Logic trong Qualtrics. Sơ đồ đổi màu theo đáp án đang chọn.</div><div id="pg" style="font-size:12px;color:var(--mu)"></div><div class="bar"><i id="pb"></i></div><div class="lgd"><span><i style="border-style:dashed"></i>Bị ẩn / chưa tới</span><span><i style="border-color:var(--ac);background:var(--acb)"></i>Đang hiển thị theo logic</span><span><i style="border-color:var(--ok);background:var(--acb)"></i>Đã trả lời</span><span><i style="border-color:var(--er)"></i>End of Survey</span></div><div id="flow" class="ov"></div><div class="hint">Lưu ý: Câu không đủ thông tin để đánh giá nên có lựa chọn riêng; không ép đáp viên đoán.</div></section></div>
+<script>
+const B=['Thế Giới Di Động','FPT Shop','CellphoneS','Viettel Store','Một thương hiệu khác'],N1='Tôi chưa từng nghe biết bất kỳ thương hiệu nào trong danh sách',TG=B[0],N5='Tôi chưa mua tại thương hiệu nào trong danh sách',O5='Thương hiệu khác trong danh sách';
+const A1N='Không đồng ý tham gia.',A2X=['Dưới 16 tuổi','Trên 22 tuổi'],C3L=['Chỉ mới nghe tên','Biết một vài thông tin cơ bản','Khá quen thuộc','Hiểu biết rõ','Không đủ thông tin để đánh giá'];
+let S={},mode='all';
+const c1=()=>S.C1||[],br=()=>c1().filter(x=>B.includes(x)),hasTG=()=>c1().includes(TG),ended=()=>S.A1===A1N||A2X.includes(S.A2);
+const bl=()=>br().length?br():B;
+const c5b=()=>(S.C5||[]).filter(x=>x!==N5);
+const cat=['Điện thoại di động','Laptop/máy tính xách tay','Máy tính bảng','Tai nghe/loa','Đồng hồ thông minh/vòng đeo tay thông minh','Phụ kiện công nghệ khác (chuột, bàn phím, sạc, cáp…)'];
+const Q=[
+{s:'A. Sàng lọc',id:'A1',t:'single',q:'Bạn đã đọc phần giới thiệu và đồng ý tự nguyện tham gia khảo sát này chưa?',o:['Có, tôi đồng ý tham gia.',A1N],c:'Chọn “Không đồng ý” → End of Survey'},
+{id:'A2',t:'single',q:'Bạn hiện bao nhiêu tuổi?',o:['Dưới 16 tuổi','16–18 tuổi','19–22 tuổi','Trên 22 tuổi'],c:'“Dưới 16” hoặc “Trên 22” → End of Survey'},
+{id:'A3',t:'single',q:'Hiện tại, bạn thuộc nhóm nào?',o:['Học sinh THPT','Sinh viên cao đẳng/đại học','Đang đi làm','Vừa học vừa làm','Khác']},
+{s:'B. Hành vi mua sắm',id:'B1',t:'matrix',q:'Trong 12 tháng qua, bạn đã mua những nhóm sản phẩm nào sau đây cho bản thân hoặc gia đình?',r:()=>cat,cols:['Đã mua','Chưa mua'],h:'Ma trận một lựa chọn theo từng dòng'},
+{id:'B2',t:'multi',q:'Trong 12 tháng tới, bạn dự định cân nhắc mua nhóm sản phẩm nào? Có thể chọn nhiều đáp án.',o:['Điện thoại di động','Laptop/máy tính xách tay','Máy tính bảng','Tai nghe/loa','Đồng hồ thông minh/vòng đeo tay thông minh','Phụ kiện công nghệ khác','Chưa có dự định mua nhóm sản phẩm nào','Chưa xác định'],ex:[6,7],c:'“Chưa có dự định…” và “Chưa xác định” loại trừ các lựa chọn khác'},
+{id:'B3',t:'multi',q:'Khi tìm hiểu sản phẩm công nghệ, bạn thường tham khảo nguồn nào?',o:['Google/công cụ tìm kiếm','Website bán lẻ','Ứng dụng mua sắm','TikTok','Facebook/Instagram','YouTube','Reviewer/KOL/KOC','Sàn thương mại điện tử','Bạn bè/người thân','Tư vấn viên tại cửa hàng','Khác','Tôi thường không tìm hiểu trước'],ex:[11]},
+{id:'B4',t:'single',q:'Khi mua thiết bị công nghệ có giá trị tương đối cao, vai trò của bạn thường là gì?',o:['Tự quyết định và tự chi trả','Tự quyết định nhưng có người khác chi trả/hỗ trợ','Cùng gia đình/người khác quyết định','Người khác quyết định phần lớn','Chưa từng tham gia quyết định mua']},
+{s:'C. Nhận biết và kinh nghiệm với thương hiệu',id:'C1',t:'multi',q:'Bạn đã từng nghe biết những thương hiệu bán lẻ công nghệ nào dưới đây? Có thể chọn nhiều đáp án.',o:[...B,N1],ex:[5],c:'“Chưa từng nghe biết…” loại trừ các lựa chọn còn lại'},
+{id:'C2',t:'rank',q:'Trong số các thương hiệu bạn vừa chọn, hãy xếp hạng thương hiệu bạn nhớ đến đầu tiên cao nhất.',h:'Bấm lần lượt theo thứ tự: Hạng 1 = nhớ đến đầu tiên. Đây là thứ tự nhớ đến trong danh sách đã gợi ý, không đo nhận biết tự phát.',o:bl,show:()=>br().length>0,c:'Hiển thị các thương hiệu chọn ở C1; bỏ qua nếu chọn “chưa từng nghe biết…”'},
+{id:'C3',t:'matrix',q:'Bạn hiểu biết về từng thương hiệu đã chọn ở C1 ở mức nào?',r:bl,cols:C3L,show:()=>br().length>0,c:'Chỉ hiển thị các thương hiệu được chọn ở C1'},
+{id:'C4',t:'multi',q:'Bạn biết đến Thế Giới Di Động thông qua những nguồn nào?',o:['Cửa hàng/biển hiệu ngoài đường','Gia đình/bạn bè/người quen','Google/công cụ tìm kiếm','Website Thế Giới Di Động','Ứng dụng Thế Giới Di Động','Facebook/Instagram','TikTok','YouTube/reviewer','Quảng cáo trực tuyến','Trường học/sự kiện','Đã từng mua sắm','Khác','Không nhớ rõ'],show:hasTG,c:'Chỉ hiển thị nếu C1 có “Thế Giới Di Động”'},
+{id:'C5',t:'multi',q:'Trong 12 tháng qua, bạn đã mua sản phẩm tại thương hiệu nào dưới đây?',o:()=>[...(br().length?br().map(b=>b===B[4]?O5:b):[...B.slice(0,4),O5]),N5],ex:null,exl:1,show:()=>br().length>0,c:'Chỉ hiển thị thương hiệu đã chọn ở C1; “chưa mua…” loại trừ các đáp án khác'},
+{id:'C6',t:'rank',q:'Hãy xếp hạng trải nghiệm của bạn với các thương hiệu mà bạn đã mua trong 12 tháng qua.',h:'Hạng 1 = trải nghiệm tốt nhất; chỉ xếp hạng thương hiệu thực sự đã mua.',o:()=>c5b().length?c5b():[...B.slice(0,4),O5],show:()=>c5b().length>=2,c:'Chỉ hiển thị khi C5 có ≥ 2 thương hiệu đã mua; 0–1 thương hiệu thì bỏ qua'},
+{s:'D. Hình ảnh thương hiệu Thế Giới Di Động',id:'D1',t:'sem',q:'Dựa trên hiểu biết hiện tại, bạn đánh giá Thế Giới Di Động như thế nào? Với mỗi dòng, chọn mức gần với cảm nhận của bạn nhất.',rows:[['Truyền thống','Hiện đại'],['Xa cách','Gần gũi'],['Ít thu hút sự quan tâm','Thu hút sự quan tâm'],['Ít phù hợp với nhu cầu của tôi','Phù hợp với nhu cầu của tôi'],['Ít tạo cảm giác tin cậy','Tạo cảm giác tin cậy'],['Ít khác biệt so với đối thủ','Có nét khác biệt rõ ràng']],show:()=>hasTG()&&[1,2,3].some(i=>(S.C3||{})[TG]===C3L[i]),c:'C1 có TGDĐ AND C3(TGDĐ) từ “Biết một vài thông tin cơ bản” trở lên; ẩn nếu “Chỉ mới nghe tên”/“Không đủ thông tin”'},
+{s:'E. Tiêu chí lựa chọn nhà bán lẻ công nghệ',id:'E1',t:'multi',max:5,q:'Khi chọn nơi mua thiết bị công nghệ, tối đa 5 yếu tố nào quan trọng nhất với bạn?',o:['Giá phù hợp ngân sách','Khuyến mãi/ưu đãi','Đa dạng sản phẩm và thương hiệu','Uy tín của nhà bán lẻ','Bảo hành và hậu mãi','Nhân viên tư vấn','Vị trí cửa hàng thuận tiện','Mua online thuận tiện','Trả góp/phương thức thanh toán linh hoạt','Website/ứng dụng dễ sử dụng','Hình ảnh và danh tiếng thương hiệu','Đánh giá từ người mua/reviewer','Chính sách đổi trả','Giao hàng nhanh/thuận tiện','Khác']},
+{id:'E2',t:'rank',q:'Trong các tiêu chí bạn vừa chọn, hãy xếp hạng theo mức độ quan trọng: hạng 1 là quan trọng nhất.',o:()=>E1O(),show:()=>(S.E1||[]).length>=2,c:'Hiển thị các lựa chọn E1; chỉ chọn 1 tiêu chí thì bỏ qua'},
+{id:'E3',t:'sum',q:'Hãy phân bổ tổng cộng 100 điểm cho các tiêu chí đã chọn để thể hiện mức độ quan trọng tương đối.',h:'Tổng điểm phải bằng 100; có thể phân bổ 0 điểm cho tiêu chí ít quan trọng.',o:()=>E1O(),show:()=>(S.E1||[]).length>=1,c:'Constant Sum: kiểm tra tổng = 100 (chỉ cảnh báo, không bắt buộc)'},
+{id:'E4',t:'open',q:'Theo bạn, điều gì khiến một nhà bán lẻ công nghệ trở nên hấp dẫn và đáng cân nhắc hơn đối với học sinh, sinh viên và người trẻ?'},
+{s:'F. Tiếp xúc với Thế Giới Di Động và rào cản',id:'F1',t:'multi',q:'Trong 30 ngày qua, bạn có tiếp xúc với Thế Giới Di Động qua những kênh nào?',o:['Cửa hàng/biển hiệu','Facebook/Instagram','TikTok','YouTube','Google/kết quả tìm kiếm','Website','Ứng dụng','Quảng cáo trực tuyến','Bạn bè/gia đình','KOL/KOC/reviewer','Khác','Không nhớ đã tiếp xúc'],ex:[11],show:hasTG,c:'Chỉ hiển thị nếu C1 có TGDĐ'},
+{id:'F2',t:'single',q:'Nếu muốn kiểm tra giá hoặc thông tin sản phẩm tại Thế Giới Di Động, bạn thường làm gì đầu tiên?',o:['Tìm trên Google','Vào website','Mở ứng dụng','Xem mạng xã hội','Xem đánh giá/reviewer','Hỏi bạn bè/người thân','Đến cửa hàng','Liên hệ nhân viên','Tôi chưa từng tìm thông tin về TGDĐ','Khác'],show:hasTG,c:'Chỉ hiển thị nếu C1 có TGDĐ'},
+{id:'F3',t:'single',q:'Bạn truy cập website Thế Giới Di Động với tần suất như thế nào?',o:['Chưa bao giờ','Hiếm khi','Thỉnh thoảng','Khá thường xuyên','Rất thường xuyên','Không nhớ rõ'],show:hasTG,c:'Chỉ hiển thị nếu C1 có TGDĐ'},
+{id:'F4',t:'multi',q:'Khi truy cập website Thế Giới Di Động, bạn thường làm gì?',o:['Xem giá','So sánh sản phẩm','Đọc thông số','Xem khuyến mãi','Kiểm tra hàng/cửa hàng','Đọc đánh giá','Đặt mua online','Tìm thông tin bảo hành/đổi trả','Khác','Không nhớ rõ'],show:()=>hasTG()&&S.F3&&S.F3!=='Chưa bao giờ',c:'Chỉ hiển thị nếu F3 khác “Chưa bao giờ”'},
+{id:'F5',t:'multi',q:'Điều gì khiến bạn ngần ngại khi cân nhắc mua sản phẩm tại Thế Giới Di Động?',o:['Giá chưa phù hợp ngân sách','Khuyến mãi chưa hấp dẫn','Chưa thấy khác biệt so với đối thủ','Chưa phù hợp nhu cầu người trẻ','Website/ứng dụng chưa thuận tiện','Chưa đủ thông tin để quyết định','Lo ngại về tư vấn/bán hàng','Lo ngại về bảo hành/hậu mãi','Cửa hàng chưa thuận tiện','Tôi không có rào cản đáng kể','Khác','Không đủ thông tin để đánh giá'],ex:[9],show:hasTG,c:'Chỉ hiển thị nếu C1 có TGDĐ; “Không có rào cản” loại trừ các lựa chọn khác'},
+{s:'G. Cân nhắc và ý định mua',id:'G1',t:'single',q:'Nếu cần mua thiết bị công nghệ trong 12 tháng tới và Thế Giới Di Động có sản phẩm phù hợp, khả năng bạn cân nhắc thương hiệu này là bao nhiêu?',o:['1 = Chắc chắn không cân nhắc','2 = Có lẽ không cân nhắc','3 = Chưa chắc','4 = Có lẽ sẽ cân nhắc','5 = Chắc chắn sẽ cân nhắc','Không đủ thông tin để đánh giá'],show:hasTG,c:'Chỉ hiển thị nếu C1 có TGDĐ'},
+{id:'G2',t:'single',q:'Nếu Thế Giới Di Động có sản phẩm phù hợp nhu cầu và ngân sách, khả năng bạn mua tại đây trong 12 tháng tới là bao nhiêu?',o:['1 = Chắc chắn không mua','2 = Có lẽ không mua','3 = Chưa chắc','4 = Có lẽ sẽ mua','5 = Chắc chắn sẽ mua','Không đủ thông tin để đánh giá'],show:hasTG,c:'Chỉ hiển thị nếu C1 có TGDĐ'},
+{s:'H. Kỳ vọng, nội dung và đề xuất',id:'H1a',t:'open',q:'Theo bạn, Thế Giới Di Động cần cải thiện điều gì để phù hợp hơn với học sinh, sinh viên và người trẻ 16–22 tuổi?',show:hasTG,c:'Hiển thị nếu C1 có TGDĐ'},
+{id:'H1b',t:'open',q:'Theo bạn, một nhà bán lẻ công nghệ cần thay đổi hoặc bổ sung điều gì để hấp dẫn hơn với học sinh, sinh viên và người trẻ 16–22 tuổi?',show:()=>!hasTG(),c:'Hiển thị nếu C1 không chọn TGDĐ hoặc chọn “chưa từng nghe biết…”'},
+{id:'H2',t:'multi',q:'Bạn muốn một thương hiệu bán lẻ công nghệ cung cấp nội dung hoặc hoạt động nào? Có thể chọn nhiều đáp án.',o:['Hướng dẫn sử dụng/thủ thuật công nghệ','So sánh sản phẩm theo nhu cầu và ngân sách','Video review ngắn','Ưu đãi riêng cho học sinh/sinh viên','Trải nghiệm tại cửa hàng','Thử thách/cuộc thi trên mạng xã hội','Nội dung từ creator/reviewer','Nội dung gắn với học tập, làm việc và giải trí','Hoạt động tại trường học/cộng đồng','Tôi không có nhu cầu với các nội dung/hoạt động này','Khác'],ex:[9],c:'“Không có nhu cầu…” loại trừ các đáp án khác'},
+{id:'H3',t:'open',q:'Bạn có đề xuất nào khác để thương hiệu bán lẻ công nghệ trở nên gần gũi và hấp dẫn hơn với người trẻ không?'}];
+const H1AO=['Thông tin giá, khuyến mãi, bảo hành và đổi trả rõ ràng hơn','Trải nghiệm tại cửa hàng thân thiện, ít tạo áp lực mua hàng','Website/ứng dụng dễ dùng hơn, tìm kiếm và so sánh thuận tiện hơn','Tăng nội dung video ngắn, review và so sánh sản phẩm','Nội dung truyền thông trẻ trung, gần gũi và dễ hiểu hơn','Khác (vui lòng ghi rõ)','Tôi chưa có đề xuất cụ thể'];
+const H1BO=['Có hoạt động tại trường học/cộng đồng','Truyền thông gần gũi, sáng tạo và phù hợp người trẻ','Có trải nghiệm thực tế tại cửa hàng','Chính sách bảo hành, đổi trả và hậu mãi minh bạch','Website/ứng dụng thuận tiện để tìm hiểu và so sánh','Có đánh giá/review và nội dung so sánh đáng tin cậy','Tư vấn trung thực, dễ hiểu và không gây áp lực mua hàng','Có ưu đãi dành riêng cho học sinh, sinh viên','Giá rõ ràng, cạnh tranh và có lựa chọn theo nhiều mức ngân sách','Có sản phẩm phù hợp với nhu cầu học tập, làm việc và giải trí','Khác (vui lòng ghi rõ)','Tôi chưa có kỳ vọng cụ thể'];
+const H3O=['Hình ảnh và thông điệp thương hiệu hiện đại, nhất quán','Hoạt động tương tác hoặc sự kiện dành cho người trẻ','Có cơ hội trải nghiệm sản phẩm trước khi mua','Được cá nhân hóa gợi ý theo nhu cầu và ngân sách','Phản hồi thắc mắc nhanh chóng trên các kênh trực tuyến','Thông tin sản phẩm và giá dễ kiểm chứng','Câu chuyện/trải nghiệm thật từ học sinh, sinh viên','Nội dung thực tế, minh bạch và có dẫn chứng','Ngôn ngữ giao tiếp thân thiện, không quá quảng cáo','Giá bán cạnh tranh hơn hoặc có lựa chọn phù hợp ngân sách sinh viên','Khác (vui lòng ghi rõ)','Tôi không có yêu cầu bổ sung'];
+const E1O=()=>(S.E1&&S.E1.length)?S.E1:Q.find(q=>q.id==='E1').o;
+const TGC='Chỉ hiển thị nếu C1 chọn TGDĐ.';
+const X={
+A1:{sd:'Nếu không đáp ứng tiêu chí đồng ý tham gia hoặc độ tuổi, Qualtrics kết thúc khảo sát.',c:'Nếu chọn “Không đồng ý” → End of Survey.'},
+A2:{c:'Nếu chọn “Dưới 16 tuổi” hoặc “Trên 22 tuổi” → End of Survey.'},
+A3:{af:'Phạm vi địa lý nghiên cứu được xác định là TP. Hồ Chí Minh; không thu thập câu hỏi phân vùng địa lý trong bảng hỏi này. Nếu cần xác minh mẫu tại địa bàn, hãy bổ sung câu sàng lọc TP.HCM trước khi phát hành khảo sát.'},
+B1:{sd:'Các câu B áp dụng cho tất cả đáp viên đã vượt qua phần sàng lọc.',h:'',ty:'Ma trận một lựa chọn theo từng dòng'},
+B2:{c:'',n:'“Chưa có dự định…” nên được thiết lập loại trừ các lựa chọn còn lại. “Chưa xác định” cũng nên loại trừ các lựa chọn khác.'},
+C1:{c:'',n:'Lựa chọn “chưa từng nghe biết…” phải loại trừ toàn bộ lựa chọn còn lại.'},
+C2:{h:'Hạng 1 = thương hiệu bạn nhớ đến đầu tiên; các hạng sau là những thương hiệu tiếp theo bạn nhớ đến.',c:'Hiển thị các thương hiệu được chọn ở C1; nếu chọn “chưa từng nghe biết…” thì bỏ qua C2.',n:'Đây là thứ tự nhớ đến trong danh sách đã gợi ý, không được diễn giải là đo lường hoàn toàn mức độ nhận biết tự phát.'},
+C3:{ty:'Ma trận một lựa chọn theo từng thương hiệu được chọn',c:'Chỉ hiển thị các thương hiệu được chọn ở C1.'},
+C4:{c:'Chỉ hiển thị nếu C1 có chọn “Thế Giới Di Động”.'},
+C5:{c:'Chỉ hiển thị các thương hiệu đã chọn ở C1; lựa chọn “chưa mua…” loại trừ các đáp án khác.'},
+C6:{h:'Hạng 1 = trải nghiệm tốt nhất; chỉ xếp hạng những thương hiệu thực sự đã mua.',c:'Chỉ hiển thị các thương hiệu đã chọn ở C5 và có trải nghiệm mua; nếu chỉ có 0 hoặc 1 thương hiệu thì bỏ qua C6.'},
+D1:{ty:'Ma trận thang đo đối cực 1–5',c:'Chỉ hiển thị nếu C1 chọn TGDĐ và C3 của TGDĐ từ “Biết một vài thông tin cơ bản” trở lên. Nếu C3 là “Chỉ mới nghe tên” hoặc “Không đủ thông tin” thì bỏ qua D1.',n:'Không bắt buộc đáp viên đánh giá khi thiếu thông tin; nên đặt “Không đủ thông tin” thành lựa chọn riêng, không gộp vào điểm giữa.'},
+E1:{sd:'Phần E hỏi tất cả đáp viên đủ điều kiện, không phụ thuộc việc có biết Thế Giới Di Động hay không.',ty:'Nhiều lựa chọn, tối đa 5'},
+E2:{h:'Chỉ xếp hạng các tiêu chí đã chọn ở E1.',c:'Hiển thị các lựa chọn E1; nếu chỉ chọn 1 tiêu chí thì bỏ qua câu xếp hạng.'},
+E3:{ty:'Constant Sum – tổng đúng 100 điểm',h:'Tiêu chí quan trọng hơn nhận nhiều điểm hơn. Tổng điểm của tất cả tiêu chí phải bằng 100. Có thể phân bổ 0 điểm cho tiêu chí ít quan trọng.',c:'Hiển thị các tiêu chí đã chọn ở E1. Thiết lập kiểm tra tổng điểm = 100; nếu nền tảng không hỗ trợ xác thực tổng tự động, hướng dẫn đáp viên và kiểm tra dữ liệu khi xuất.'},
+F1:{c:'Chỉ hiển thị nếu C1 chọn TGDĐ; “Không nhớ…” loại trừ các lựa chọn khác.'},
+F2:{c:TGC},F3:{c:TGC},
+F4:{c:'Chỉ hiển thị nếu F3 khác “Chưa bao giờ”.'},
+F5:{c:'Chỉ hiển thị nếu C1 chọn TGDĐ. “Không có rào cản đáng kể” loại trừ các lựa chọn rào cản khác.'},
+G1:{ty:'Thang 1–5 + không đủ thông tin',c:TGC},G2:{ty:'Thang 1–5 + không đủ thông tin',c:TGC},
+H1a:{t:'multi',max:3,ot:1,ty:'Nhiều lựa chọn, tối đa 3 + Khác',q:'Theo bạn, Thế Giới Di Động nên ưu tiên cải thiện những nội dung nào để phù hợp hơn với học sinh, sinh viên và người trẻ 16–22 tuổi? Vui lòng chọn tối đa 3 đáp án.',o:H1AO,ex:[6],c:'Hiển thị nếu C1 có chọn TGDĐ.'},
+H1b:{t:'multi',max:3,ot:1,ty:'Nhiều lựa chọn, tối đa 3 + Khác',q:'Theo bạn, một nhà bán lẻ công nghệ cần làm gì để hấp dẫn hơn với học sinh, sinh viên và người trẻ 16–22 tuổi? Vui lòng chọn tối đa 3 đáp án.',o:H1BO,ex:[11],c:'Hiển thị nếu C1 không chọn TGDĐ hoặc chọn “Tôi chưa từng nghe biết bất kỳ thương hiệu nào trong danh sách”.'},
+H2:{c:'',n:'Lựa chọn “Tôi không có nhu cầu…” nên loại trừ các đáp án khác.'},
+H3:{t:'multi',ot:1,ty:'Nhiều lựa chọn + Khác',q:'Điều gì sẽ khiến bạn cảm thấy một thương hiệu bán lẻ công nghệ gần gũi và đáng tin hơn? Có thể chọn nhiều đáp án.',o:H3O,ex:[11],c:'Hiển thị cho tất cả đáp viên đủ điều kiện.'}};
+Object.entries(X).forEach(([i,o])=>Object.assign(Q.find(q=>q.id===i),o));
+const TY={single:'Một lựa chọn',multi:'Nhiều lựa chọn',matrix:'Ma trận',rank:'Xếp hạng',sem:'Thang đối cực 1–5',sum:'Constant Sum',open:'Trả lời mở'};
+const E=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'),val=x=>typeof x==='function'?x():x;
+function vis(q){if(q.id==='A1')return true;if(q.id==='A2')return S.A1!==A1N;if(ended())return false;return q.show?!!q.show():true}
+function done(q){const v=S[q.id];if(v==null)return false;if(Array.isArray(v))return v.length>0;if(typeof v==='object')return Object.keys(v).length>0;return String(v).trim()!==''}
+function body(q){const v=S[q.id],d=`data-q="${q.id}"`;
+if(q.t==='single')return q.o.map(o=>`<div class="opt ${v===o?'on':''}" data-a="s" ${d} data-v="${E(o)}"><u></u>${E(o)}</div>`).join('');
+if(q.t==='multi'){const o=val(q.o),sel=(v||[]).filter(x=>o.includes(x)),exs=q.exl?[o.length-1]:(q.ex||[]);
+return o.map((x,i)=>{const on=sel.includes(x),full=q.max&&sel.length>=q.max&&!on&&!exs.includes(i);return `<div class="opt m ${on?'on':''} ${full?'dis':''}" data-a="m" ${d} data-v="${E(x)}" data-i="${i}"><u></u>${E(x)}</div>`}).join('')+(q.max?`<div class="hint">Đã chọn ${sel.length}/${q.max}</div>`:'')+(q.ot&&sel.some(x=>x.includes('vui lòng ghi rõ'))?`<input class="oti" data-ot="${q.id}" placeholder="Vui lòng ghi rõ…" value="${E(S[q.id+'_o']||'')}">`:'')}
+if(q.t==='matrix'){const r=val(q.r),m=v||{};return `<div class="ov"><table><tr><th></th>${q.cols.map(c=>`<th>${E(c)}</th>`).join('')}</tr>${r.map(x=>`<tr><td>${E(x)}</td>${q.cols.map(c=>`<td><span class="cell ${m[x]===c?'on':''}" data-a="x" ${d} data-r="${E(x)}" data-v="${E(c)}"></span></td>`).join('')}</tr>`).join('')}</table></div>`}
+if(q.t==='rank'){const o=val(q.o),rk=(v||[]).filter(x=>o.includes(x));if(!o.length)return '<div class="mt">(Chưa có mục để xếp hạng — hãy trả lời câu nguồn trước)</div>';
+return o.map(x=>{const i=rk.indexOf(x);return `<div class="opt ${i>=0?'on':''}" data-a="k" ${d} data-v="${E(x)}">${E(x)}${i>=0?`<em>Hạng ${i+1}</em>`:''}</div>`}).join('')}
+if(q.t==='sem'){const m=v||{};return q.rows.map((r,i)=>`<div class="sm"><div class="l">1 = ${E(r[0])}</div><div class="pts">${[1,2,3,4,5].map(n=>`<span class="cell ${m[i]===n?'on':''}" title="${n}${n==3?' = Trung lập':''}" data-a="e" ${d} data-r="${i}" data-v="${n}"></span>`).join('')}</div><div>5 = ${E(r[1])}</div><span class="na ${m[i]==='na'?'on':''}" data-a="e" ${d} data-r="${i}" data-v="na">Không đủ thông tin</span></div>`).join('')+'<div class="hint">Thang 1–5: 1 = cực trái; 2; 3 = Trung lập; 4; 5 = cực phải. “Không đủ thông tin để đánh giá” là lựa chọn riêng cho từng dòng.</div>'}
+if(q.t==='sum'){const o=val(q.o),m=v||{};if(!o.length)return '<div class="mt">(Chưa có tiêu chí — chọn ở E1 trước)</div>';const t=o.reduce((a,x)=>a+(+m[x]||0),0);
+return o.map(x=>`<div class="sr"><span>${E(x)}</span><input type="number" min="0" max="100" value="${m[x]??''}" data-sq="${q.id}" data-sr="${E(x)}"></div>`).join('')+`<div class="tot ${t===100?'ok':'bad'}" id="tot">Tổng: ${t}/100</div>`}
+return `<textarea ${d} data-o="1" placeholder="Nhập câu trả lời…">${E(v||'')}</textarea>`}
+function render(){let h=`<div class="intro"><h2>Nhận thức, hành vi mua sắm và mức độ cân nhắc thương hiệu Thế Giới Di Động</h2><p><i>Đối tượng: Học sinh, sinh viên và người trẻ từ 16–22 tuổi tại TP. Hồ Chí Minh</i></p><p><b>Lời giới thiệu dành cho đáp viên</b></p><p>Xin chào bạn! Khảo sát này được thực hiện nhằm phục vụ nghiên cứu học thuật về nhận thức, hành vi mua sắm và mức độ cân nhắc thương hiệu Thế Giới Di Động trong nhóm khách hàng 16–22 tuổi. Khảo sát mất khoảng 7–10 phút. Việc tham gia hoàn toàn tự nguyện; câu trả lời được tổng hợp cho mục đích nghiên cứu và không sử dụng để nhận diện cá nhân. Với câu hỏi bạn không đủ thông tin, vui lòng chọn phương án tương ứng thay vì đoán.</p><p><b>Hướng dẫn:</b> Hãy trả lời theo trải nghiệm và suy nghĩ thực tế của bạn. Một số câu cho phép chọn nhiều đáp án; hướng dẫn sẽ ghi rõ tại từng câu.</p><p style="color:var(--wn)">Bản mô phỏng: không câu nào bắt buộc trả lời. Đang hiển thị toàn bộ câu hỏi để overview; điều kiện logic ghi ngay dưới mỗi câu. Chuyển “Mô phỏng logic” để thử luồng ẩn/hiện thật.</p></div>`,nav='',vs=0,dn=0,endShown=false;
+Q.forEach(q=>{const v=vis(q);if(q.s){nav+=`<div class="sh">${q.s}</div>`;}
+if(v){vs++;if(done(q))dn++}
+nav+=`<div class="nv ${v?(done(q)?'d':''):'h'}" data-go="${q.id}" title="${E(q.c||'Luôn hiển thị')}"><i></i><b>${q.id}</b><span>${E(q.q)}</span></div>`;
+if(!v&&mode==='sim'){if(ended()&&!endShown){endShown=true;h+=`<div class="end">⛔ End of Survey — đáp viên không đạt điều kiện sàng lọc (A1/A2). Các câu sau được ẩn.</div>`}return}
+if(q.s)h+=`<div class="sec">${E(q.s)}</div>`+(q.sd?`<div class="hint" style="margin:-4px 2px 8px">${E(q.sd)}</div>`:'');
+h+=`<div class="q" id="q-${q.id}"><div class="qh"><span class="qid">${q.id}</span><span class="qt">${E(q.q)}</span><span class="ty">${q.ty||TY[q.t]}</span></div>${q.h?`<div class="hint">${E(q.h)}</div>`:''}${body(q)}${q.n?`<div class="lg nt">📝 Lưu ý thiết lập: ${E(q.n)}</div>`:''}${q.c?`<div class="lg">⚙ Logic Qualtrics: ${E(q.c)}</div>`:''}${q.af?`<div class="hint" style="margin-top:8px">${E(q.af)}</div>`:''}</div>`});
+if(mode==='sim'&&!ended())h+=`<div class="end" style="color:var(--ok);border-color:var(--ok)">✔ Cảm ơn bạn đã tham gia khảo sát</div>`;
+document.getElementById('main').innerHTML=h;prog(vs,dn)}
+function prog(vs,dn){flow();if(vs==null){vs=0;dn=0;Q.forEach(q=>{if(vis(q)){vs++;if(done(q))dn++}})}document.getElementById('pg').textContent=`Đã trả lời ${dn}/${vs} câu đang hiển thị`;document.getElementById('pb').style.width=(vs?dn/vs*100:0)+'%'}
+const vq=id=>vis(Q.find(x=>x.id===id)),dq=id=>done(Q.find(x=>x.id===id)),NO=()=>!ended();
+const ND=[
+['S',380,24,120,28,'e',['Bắt đầu'],()=>1,[]],
+['A1',380,92,230,60,'d',['A1: Đồng ý','tham gia khảo sát?'],()=>1,['A1']],
+['eA',620,92,150,36,'e',['End of Survey'],()=>S.A1===A1N,[],'rd'],
+['A2',380,182,230,60,'d',['A2: Độ tuổi','16–22?'],()=>S.A1!==A1N,['A2']],
+['eB',620,182,150,36,'e',['End of Survey'],()=>A2X.includes(S.A2),[],'rd'],
+['AB',380,270,230,46,'b',['A3 · B1 – B4','Tình trạng & hành vi mua'],NO,['A3','B1','B2','B3','B4']],
+['C1',380,356,230,56,'d',['C1: Biết thương hiệu','nào trong danh sách?'],NO,['C1']],
+['L',130,440,180,50,'b',['Chưa từng nghe biết','→ bỏ qua C2 – C6'],()=>NO()&&c1().includes(N1),[]],
+['CC',380,440,230,46,'b',['C2 · C3 · C5','Theo thương hiệu đã chọn ở C1'],()=>NO()&&br().length>0,['C2','C3','C5']],
+['D5',380,520,230,56,'d',['C5: Đã mua tại','≥ 2 thương hiệu?'],()=>NO()&&br().length>0,['C5']],
+['C6',620,520,150,44,'b',['C6 xếp hạng','trải nghiệm'],()=>NO()&&c5b().length>=2,['C6']],
+['T',380,608,230,56,'d',['C1 có chọn','Thế Giới Di Động?'],NO,['C1']],
+['C4',380,694,230,40,'b',['C4 Nguồn biết đến TGDĐ'],()=>NO()&&hasTG(),['C4']],
+['DD',380,778,230,56,'d',['C3 (TGDĐ) từ “biết','cơ bản” trở lên?'],()=>NO()&&hasTG(),['C3']],
+['D1',620,778,150,44,'b',['D1 Hình ảnh','thương hiệu'],()=>vq('D1'),['D1']],
+['E',380,866,230,46,'b',['E1 – E4','Tiêu chí chọn nơi mua (mọi đáp viên)'],NO,['E1','E2','E3','E4']],
+['T2',380,950,230,56,'d',['C1 có chọn','Thế Giới Di Động?'],NO,['C1']],
+['FG',380,1034,230,46,'b',['F1 · F2 · F3 · F5','G1 · G2'],()=>NO()&&hasTG(),['F1','F2','F3','F5','G1','G2']],
+['F4d',380,1114,230,56,'d',['F3 khác','“Chưa bao giờ”?'],()=>NO()&&hasTG(),['F3']],
+['F4',620,1114,150,40,'b',['F4 Hoạt động web'],()=>vq('F4'),['F4']],
+['H1a',380,1198,230,40,'b',['H1a Đề xuất cho TGDĐ'],()=>vq('H1a'),['H1a']],
+['H1b',130,1198,180,40,'b',['H1b Kỳ vọng chung'],()=>vq('H1b'),['H1b']],
+['H23',380,1274,230,40,'b',['H2 · H3 (mọi đáp viên)'],NO,['H2','H3']],
+['Fin',380,1342,150,32,'e',['Cảm ơn · kết thúc'],NO,[],'gd']];
+const ED=[
+['S','A1',[[380,38],[380,62]]],
+['A1','eA',[[495,92],[545,92]],'Không',520,85],
+['A1','A2',[[380,122],[380,152]],'Có',392,142],
+['A2','eB',[[495,182],[545,182]],'&lt;16 / &gt;22',520,175],
+['A2','AB',[[380,212],[380,247]],'16–22',404,234],
+['AB','C1',[[380,293],[380,328]]],
+['C1','L',[[265,356],[130,356],[130,415]],'Không biết',190,349],
+['C1','CC',[[380,384],[380,417]],'Có biết',410,405],
+['CC','D5',[[380,463],[380,492]]],
+['D5','C6',[[495,520],[545,520]],'Có',520,513],
+['D5','T',[[380,548],[380,580]],'Không',404,569,R=>!R('C6')],
+['C6','T',[[620,542],[620,608],[495,608]]],
+['L','E',[[130,465],[130,866],[265,866]]],
+['T','E',[[265,608],[130,608]],'Không',200,601,()=>!hasTG()],
+['T','C4',[[380,636],[380,674]],'Có',392,661],
+['C4','DD',[[380,714],[380,750]]],
+['DD','D1',[[495,778],[545,778]],'Có',520,771],
+['DD','E',[[380,806],[380,843]],'Không',404,830,R=>!R('D1')],
+['D1','E',[[620,800],[620,866],[495,866]]],
+['E','T2',[[380,889],[380,922]]],
+['T2','FG',[[380,978],[380,1011]],'Có',392,1002],
+['T2','H1b',[[265,950],[130,950],[130,1178]],'Không',200,943,()=>!hasTG()],
+['FG','F4d',[[380,1057],[380,1086]]],
+['F4d','F4',[[495,1114],[545,1114]],'Có',520,1107],
+['F4d','H1a',[[380,1142],[380,1178]],'Không',404,1166,R=>!R('F4')],
+['F4','H1a',[[620,1134],[620,1198],[495,1198]]],
+['H1a','H23',[[380,1218],[380,1254]]],
+['H1b','H23',[[130,1218],[130,1274],[265,1274]]],
+['H23','Fin',[[380,1294],[380,1326]]]];
+function flow(){const M={};ND.forEach(n=>M[n[0]]=!!n[7]());const R=i=>M[i];
+let s='<svg class="fs" viewBox="0 0 760 1370" role="img" aria-label="Sơ đồ logic phân nhánh"><defs><marker id="ao" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" style="fill:var(--bd)"/></marker><marker id="an" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" style="fill:var(--ac)"/></marker></defs>';
+ED.forEach(([a,b,p,l,lx,ly,c])=>{const on=R(a)&&R(b)&&(c?c(R):true);s+=`<path class="ed ${on?'on':''}" d="M${p.map(q=>q.join(' ')).join('L')}" marker-end="url(#${on?'an':'ao'})"/>`+(l?`<text class="el ${on?'on':''}" x="${lx}" y="${ly}">${l}</text>`:'')});
+ND.forEach(([id,x,y,w,h,t,ls,r,qs,cl])=>{const on=R(id),st=on?((qs||[]).some(dq)?'dn':'on'):'off';
+const sh=t==='d'?`<polygon class="nd ${cl||''}" points="${x},${y-h/2} ${x+w/2},${y} ${x},${y+h/2} ${x-w/2},${y}"/>`:`<rect class="nd ${cl||''}" x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}" rx="${t==='e'?h/2:6}"/>`;
+s+=`<g class="${st}" ${qs&&qs[0]?`data-go="${qs[0]}"`:''}>${sh}${ls.map((tx,i)=>`<text x="${x}" y="${y-(ls.length-1)*7+i*14+4}">${tx}</text>`).join('')}</g>`});
+document.getElementById('flow').innerHTML=s+'</svg>'}
+const main=document.getElementById('main');
+main.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const a=t.dataset.a,id=t.dataset.q,v=t.dataset.v,q=Q.find(x=>x.id===id);
+if(a==='s')S[id]=S[id]===v?undefined:v;
+else if(a==='m'){if(t.classList.contains('dis'))return;const o=val(q.o),exs=q.exl?[o.length-1]:(q.ex||[]),i=+t.dataset.i;let c=(S[id]||[]).filter(x=>o.includes(x));
+if(c.includes(v))c=c.filter(x=>x!==v);else{c=exs.includes(i)?[v]:c.filter(x=>!exs.includes(o.indexOf(x)));c.push(v)}S[id]=c}
+else if(a==='x'){S[id]={...(S[id]||{}),[t.dataset.r]:v}}
+else if(a==='e'){const r=t.dataset.r;S[id]={...(S[id]||{}),[r]:v==='na'?'na':+v}}
+else if(a==='k'){let c=S[id]||[];c=c.includes(v)?c.filter(x=>x!==v):[...c,v];S[id]=c}
+render()});
+main.addEventListener('input',e=>{const t=e.target;if(t.dataset.ot){S[t.dataset.ot+'_o']=t.value}else if(t.dataset.o){S[t.dataset.q]=t.value;prog()}else if(t.dataset.sq){const m={...(S[t.dataset.sq]||{})};m[t.dataset.sr]=t.value===''?undefined:+t.value;S[t.dataset.sq]=m;const s=Object.values(m).reduce((a,x)=>a+(+x||0),0),el=document.getElementById('tot');el.textContent=`Tổng: ${s}/100`;el.className='tot '+(s===100?'ok':'bad');prog()}});
+document.getElementById('flow').addEventListener('click',e=>{const t=e.target.closest('[data-go]');const el=t&&document.getElementById('q-'+t.dataset.go);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})});
+document.getElementById('tg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;mode=b.dataset.m;[...b.parentNode.children].forEach(x=>x.classList.toggle('on',x===b));render()});
+const SC={0:{},1:{A1:A1N},2:{A1:'Có, tôi đồng ý tham gia.',A2:'Trên 22 tuổi'},3:{A1:'Có, tôi đồng ý tham gia.',A2:'16–18 tuổi',A3:'Học sinh THPT',C1:[B[1],B[2]],C3:{[B[1]]:C3L[2],[B[2]]:C3L[1]}},4:{A1:'Có, tôi đồng ý tham gia.',A2:'19–22 tuổi',A3:'Sinh viên cao đẳng/đại học',C1:[TG,B[1]],C2:[TG,B[1]],C3:{[TG]:C3L[0],[B[1]]:C3L[2]}},5:{A1:'Có, tôi đồng ý tham gia.',A2:'19–22 tuổi',A3:'Sinh viên cao đẳng/đại học',C1:[TG,B[1],B[2]],C2:[TG,B[2],B[1]],C3:{[TG]:C3L[2],[B[1]]:C3L[1],[B[2]]:C3L[0]},C5:[TG,B[1]],C6:[B[1],TG],F3:'Thỉnh thoảng',E1:['Giá phù hợp ngân sách','Uy tín của nhà bán lẻ','Bảo hành và hậu mãi']}};
+document.querySelector('.sc').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S=JSON.parse(JSON.stringify(SC[b.dataset.s]));render();scrollTo({top:0,behavior:'smooth'})});
+const AP1=[['A1','Chọn “Không đồng ý tham gia”','End of Survey'],['A2','Chọn “Dưới 16 tuổi” hoặc “Trên 22 tuổi”','End of Survey'],['C2','C1 có chọn ít nhất một thương hiệu và không chọn “chưa từng nghe biết…”','Hiển thị C2; thứ tự xếp hạng theo các thương hiệu được chọn'],['C3','C1 có chọn thương hiệu','Chỉ hiển thị các dòng tương ứng thương hiệu đã chọn'],['C4','C1 có chọn “Thế Giới Di Động”','Hiển thị C4'],['C5','C1 có chọn thương hiệu','Chỉ hiển thị thương hiệu được chọn ở C1; phương án “chưa mua” loại trừ'],['C6','C5 có từ 2 thương hiệu đã mua trở lên','Hiển thị C6; nếu 0–1 thương hiệu thì bỏ qua'],['D1','C1 có chọn TGDĐ AND C3 của TGDĐ = biết cơ bản/khá quen/hiểu rõ','Hiển thị D1; nếu chỉ nghe tên hoặc không đủ thông tin thì ẩn'],['F1–F3, F5','C1 có chọn TGDĐ','Hiển thị các câu F tương ứng'],['F4','F3 khác “Chưa bao giờ”','Hiển thị F4'],['G1–G2','C1 có chọn TGDĐ','Hiển thị G1 và G2'],['H1a','C1 có chọn TGDĐ','Hiển thị câu hỏi lựa chọn tối đa 3 cải thiện dành cho người biết TGDĐ.'],['H1b','C1 không chọn TGDĐ hoặc chọn “chưa từng nghe biết…”','Hiển thị câu hỏi lựa chọn tối đa 3 kỳ vọng chung, không yêu cầu đánh giá thương hiệu chưa biết.'],['E1–E4, H2–H3','Tất cả đáp viên đủ điều kiện','Hiển thị cho tất cả; H3 là câu nhiều lựa chọn về yếu tố tạo cảm giác gần gũi/đáng tin.']];
+const AP2=['Tạo Survey Flow: A1/A2 là điều kiện sàng lọc; người không đạt được chuyển đến End of Survey.','Tạo Display Logic cho C4, D1, F, G, H1a/H1b theo bảng logic.','Cài lựa chọn loại trừ cho các đáp án “chưa từng nghe biết”, “chưa mua”, “không có rào cản”, “không có nhu cầu”.','Với câu xếp hạng, chỉ đưa vào các phương án đáp viên đã chọn/đã trải nghiệm.','Với E3 Constant Sum, kiểm tra tổng điểm bằng 100; nếu không có validation phù hợp, cần kiểm tra dữ liệu sau khi xuất.','Preview tối thiểu 5 tình huống: (1) không đồng ý; (2) ngoài độ tuổi; (3) không biết TGDĐ; (4) biết nhưng chỉ nghe tên; (5) biết từ mức cơ bản và đã mua.','Không diễn giải dữ liệu mô phỏng là kết quả khảo sát thực tế. Chỉ phân tích sau khi thu thập dữ liệu thật.','H1a/H1b đã chuyển thành câu hỏi chọn tối đa 3 đáp án; H3 là câu nhiều lựa chọn có phương án “Khác”, nhằm chuẩn hóa dữ liệu và giảm gánh nặng trả lời mở.'];
+document.getElementById('ap1').innerHTML='<h3>PHỤ LỤC 1. CẤU TRÚC LOGIC CẦN CÀI TRONG QUALTRICS</h3><div class="hint">Nguyên tắc: đặt Display Logic cho câu hỏi/khối câu hỏi; đặt Skip Logic hoặc End of Survey cho điều kiện loại mẫu. Nên thử nghiệm Preview Survey bằng nhiều hồ sơ đáp viên trước khi phát hành.</div><div class="ov"><table><tr><th>Câu/nhóm</th><th>Điều kiện</th><th>Hành động</th></tr>'+AP1.map(r=>'<tr>'+r.map(c=>'<td style="text-align:left">'+E(c)+'</td>').join('')+'</tr>').join('')+'</table></div>';
+document.getElementById('ap2').innerHTML='<h3>PHỤ LỤC 2. CHECKLIST THIẾT LẬP VÀ KIỂM TRA</h3><ul>'+AP2.map(x=>'<li>'+E(x)+'</li>').join('')+'</ul>';
+render();
+</script></body></html>
